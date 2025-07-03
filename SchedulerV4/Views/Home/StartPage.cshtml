@@ -1,1 +1,88 @@
-﻿
+﻿@{
+    ViewData["Title"] = "Расписание занятий";
+}
+
+<h1>Расписание занятий</h1>
+<div class="form-row">
+  <label for="group-number">Номер группы:</label>
+  <input type="text" id="group-number" name="group-number" />
+  <button type="button" id="showScheduleBtn">Показать расписание</button>
+</div>
+
+<script>
+document.getElementById('showScheduleBtn').addEventListener('click', () => {
+    const group = document.getElementById('group-number').value.trim();
+    if (!group) {
+        alert('Введите номер группы');
+        return;
+    }
+window.location.href = `/Home/Schedule?group=${encodeURIComponent(group)}`;
+
+});
+
+</script>
+
+<style>
+/* твои стили, прямо сюда */
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    background-color: #f5f7fa;
+    color: #333;
+}
+h1 {
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 60px;
+    color: #222;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+.form-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+label {
+    font-size: 25px;
+    user-select: none;
+    color: #555;
+    min-width: 180px;
+}
+input[type="text"] {
+    width: 350px;
+    height: 50px;
+    font-size: 32px;
+    padding: 0 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+input[type="text"]:focus {
+    border-color: #0088CE;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 136, 206, 0.3);
+}
+button {
+    font-size: 20px;
+    height: 58px;
+    padding: 0 30px;
+    cursor: pointer;
+    background: linear-gradient(145deg, #0099e6, #006fb3);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,123,204,0.6);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+button:hover {
+    background: linear-gradient(145deg, #0077b3, #005885);
+    box-shadow: 0 6px 15px rgba(0,94,165,0.8);
+}
+</style>
