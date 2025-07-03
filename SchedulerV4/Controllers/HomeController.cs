@@ -13,5 +13,18 @@ namespace YourProject.Controllers
         {
             return View();
         }
+
+        public IActionResult StartPage()
+        {
+            return View();
+        }
+
+
+        public IActionResult Schedule(string group)
+        {
+            ViewData["Group"] = group;
+            return View("schedule");  // загружает Views/Home/schedule.cshtml
+        }
+
     }
 }
