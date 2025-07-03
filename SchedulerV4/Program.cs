@@ -37,4 +37,4 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=StartPage}/{id?}");
 
-app.Run();
+app.Run()
